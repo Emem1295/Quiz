@@ -1,0 +1,58 @@
+
+users = {
+ "admin": "admin",
+ "PGR107": "Python "
+}
+def login():
+ 
+ username = input("Enter your username: ")
+ password = input("Enter your password: ")
+ return users.get(username) == password
+if not login():
+ print("Invalid username and/or password.")
+else:
+ questions = [
+ "1. What is the capital of Norway?: ",
+ "2. What is the currency of Norway?: ",
+ "3. What is the largest city in Norway: ",
+ "4. When is constitution day (the national day) of Norway?: ",
+ "5. What color is the background of the Norwegian flag?: ",
+ "6. How many countries does Norway border?: ",
+ "7. What is the name of the university in Trondheim?: ",
+ "8. How long is the border between Norway and Russia?: ",
+ "9. Where in Norway is Stavanger?: ",
+ "10. From which Norwegian city did the world’s famous composer Edvard Grieg
+come?: "
+ ]
+ choices = [
+ ["A. Bergen", "B. Oslo", "C. Stavanger", "D. Trondheim"],
+ ["A. Euro", "B. Pound", "C. Krone", "D. Deutsche Mark"],
+ ["A. Oslo", "B. Stavanger", "C. Bergen", "D. Trondheim"],
+ ["A. 27 May", "B. 17 May", "C. 17 April", "D. 27 April"],
+ ["A. Red", "B. White", "C. Blue", "D. Yellow"],
+ ["A. 1", "B. 2", "C. 3", "D. 4"],
+ ["A. UiS", "B. UiO", "C. NMBU", "D. NTNU"],
+ ["A. 96 km", "B. 196 km", "C. 296 km", "D. 396 km"],
+ ["A. North", "B. South", "C. South West", "D. South East"],
+ ["A. Oslo", "B. Bergen", "C. Stavanger", "D. Tromsø"]
+ ]
+ answers = ["B", "C", "A", "B", "A", "C", "D", "B", "C", "B"]
+ guesses = []
+ score = 0
+ for i in range(len(questions)):
+ print("----------------------")
+ print(questions[i])
+ for choice in choices[i]:
+ print(choice)
+ 
+ guess = input("Enter (A, B, C, D): ").upper()
+ guesses.append(guess)
+ 
+ if guess == answers[i]:
+ score += 1
+ print("CORRECT!")
+ else: print("INCORRECT!")
+ print(f"The correct answer was {answers[i]}")
+ # Display the results
+ print("Right answers: " + ' '.join(answers))
+ print("Your answers: " + ' '.join(guesses))
